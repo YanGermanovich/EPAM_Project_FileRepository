@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e9c29c86cecd4eb9b90ff958269d5ef7" Name="Diagram1">
+        <EntityTypeShape EntityType="LumeDBModel.Rating" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LumeDBModel.Resource" Width="1.5" PointX="8.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LumeDBModel.Role" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LumeDBModel.TypeResource" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LumeDBModel.User" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <AssociationConnector Association="LumeDBModel.Rating_To_Resource" ManuallyRouted="false" />
+        <AssociationConnector Association="LumeDBModel.Rating_To_User" ManuallyRouted="false" />
+        <AssociationConnector Association="LumeDBModel.Resource_To_TypeResource" ManuallyRouted="false" />
+        <AssociationConnector Association="LumeDBModel.Resource_To_User" ManuallyRouted="false" />
+        <AssociationConnector Association="LumeDBModel.User_To_Role" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @RenderSection("styles", required: false)
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+</head>
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar2"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                    <a class="navbar-brand logo" href="@Url.Action("Index", "Home")"><img alt="logo" src="~/img/logo_.png"></a>
+                </div>
+                <div id="navbar2" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-left">
+                        @if (Request.IsAuthenticated)
+                        {
+                            <li class="navbar_left_user_name">Hello, @User.Identity.Name</li>
+                        }
+                        else
+                        {
+                            <li> <a href="#">Home</a> </li>
+                        }
+
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        @if (Request.IsAuthenticated)
+                        {
+                            <li> <a href="@Url.Action("Search", "Home")">Search <span class="glyphicon glyphicon-search"></span></a> </li>
+
+                            <li> <a href="@Url.Action("LogOut", "Account")">Log out <span class="glyphicon glyphicon-log-out"></span></a></li>
+                        }
+                        else
+                        {
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Log in</b> <span class="caret"></span></a>
+                                <ul id="login-dp" class="dropdown-menu">
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                @Html.Partial("_LogInPartial")
+                                            </div>
+                                            <div class="bottom text-center row">
+                                                <div class="col-xs-6">New here?</div>
+                                                <div class="col-xs-6">
+                                                    <button type="button" class="join_us_btn" data-toggle="modal" data-target="#myModal">
+                                                        Join Us
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    @if (Request.IsAuthenticated)
+    {
+        <div class="container-fluid row content">
+            <div class="col-lg-3 most_popular col-lg-push-9">
+                <div class="most_popular_span">Most popular</div>
+                <div id="most_popular_container" class="list-group lid">
+                    @Html.Action("GetMostPopular", "Home")
+                </div>
+            </div>
+            <div id="mian_page" class="panel col-lg-9 col-lg-pull-3">
+                @RenderBody()
+            </div>
+        </div>
+        <div class="modal right fade" id="myModalView" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" id="resource_view">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeResourceView"><span aria-hidden="true">&times;</span></button>
+                        <div class="modal-title" id="myModalLabel2">
+                            <h4 class="resourceViewName">
+                                <span id="resourceViewName"></span>
+                            </h4>                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal_body_preview">
+                            <div class="panel-default modal_body_description">
+                                <div class="panel-body" id="resourceViewDescription"></div>
+                            </div>
+                            <div class="modal_body_link"> @Html.ActionLink("Download", "Download", "Home", new { id_resource = "1" }, new { @class = " btn btn-primary", id = "downloadLink" })</div>
+
+                            <div class="modal_body_statistic">
+                                <div class="modal_body_statistic_views" id="resourceViewViews">Views:</div>
+                                <div class="modal_body_statistic_rating">
+                                    Rating:
+                                    <div id="ratingResourceView">
+                                        <input id="resourceViewRating" class="rating" value="0" data-step="0.1" data-size="xs" data-show-clear="false">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" id="currentResourceID" />
+        </div>
+        <div class="modal fade" id="myModalEdit" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Edit resource</h4>
+                    </div>
+                    <div class="modal-body" >
+                        <div id="editForm"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @Scripts.Render("~/bundles/authenticated")
+    }
+    else
+    {
+        @RenderBody()
+    }
+    @Scripts.Render("~/bundles/common")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

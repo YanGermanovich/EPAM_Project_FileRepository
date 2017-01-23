@@ -1,0 +1,33 @@
+﻿@charset "utf-8";
+.navbar-brand {
+	padding: 0px;
+}
+
+.navbar-brand>img {
+	height: 100%;
+	padding: 8px;
+	width: auto;
+	margin: 0 10px 0 10px;
+}
+.edit_resource{
+    font-size:12px;
+    display:inline-block;
+    color:grey;
+    cursor:pointer;
+}
+.edit_resource:hover{
+    color:black;
+}
+.resourceViewName{
+    display:inline-block;
+}
+.edit_resource_btn{
+    padding: 0;
+	border: none;
+	background: none;
+	padding-right: 10px;
+	outline: none;
+}
+.del_resource_btn{
+    cursor:pointer;
+}

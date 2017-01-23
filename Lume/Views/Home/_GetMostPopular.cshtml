@@ -1,0 +1,25 @@
+﻿@using Lume.Models;
+@model IEnumerable<ResourceViewModel>
+@foreach (var resource in Model)
+{
+    var myClass = resource.TypeResource + "_file_icon";
+    <div class="list-group-item row">
+        <div class="col-xs-10 col-lg-10 most_popular_text">
+            <div class="most_popular_text_title">@resource.Name</div>
+            <div class="most_popular_text_description">
+                @if(resource.Description.Length>70)
+                { 
+                    var result = resource.Description.Take(70).ToString() + "...";
+                    @result;
+                }
+                else
+                {
+                    @resource.Description;
+                }
+            </div>
+        </div>
+        <button value="@resource.Id" type="button" class="col-xs-2 col-lg-2 view_button" data-toggle="modal" data-target="#myModalView">
+            <div class="@myClass"> </div>
+        </button>
+    </div>
+}

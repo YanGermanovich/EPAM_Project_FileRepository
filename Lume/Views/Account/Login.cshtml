@@ -1,0 +1,23 @@
+﻿@using Lume.Models
+@model LogInViewModel
+@section styles{
+    <link href="~/Content/myThemes/login.css" rel="stylesheet">
+}
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid text-center lume_description">Hello. Welcome to Lume - internet file repository. User can upload, view, rate and download any text, audio or video files. If you want to be with us, please log in or sign up and enjoy Lume.</div>
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Sign up</h4>
+            </div>
+            <div class="modal-body">
+                @Html.Partial("_GetSignUpForm")
+            </div>
+        </div>
+    </div>
+</div>

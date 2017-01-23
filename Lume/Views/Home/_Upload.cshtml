@@ -1,0 +1,33 @@
+﻿@using Lume.Models;
+@model ResourceViewModel
+
+@using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { @class = "modal_upload_form", enctype = "multipart/form-data" }))
+{
+    <div class="row">
+
+        <div class="modal_upload_form_upload col-md-8 col-sm-6">
+            <div>
+                @Html.LabelFor(m => m.UploadFile)
+            </div>
+            @Html.TextBoxFor(m => m.UploadFile, new { @class = "file-loading", data_show_preview = "false", type = "file", id = "file_upload_input" })
+            <div id="errorBlock" class="help-block"></div>
+            @Html.ValidationMessageFor(m => m.UploadFile, null, new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group modal_upload_form_name col-sm-6">
+            <div>
+                @Html.LabelFor(m => m.Name)
+            </div>
+
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", id = "name" })
+            @Html.ValidationMessageFor(m => m.Name, null, new { @class = "text-danger" })
+        </div>
+        <div class="form-group modal_upload_form_name col-sm-6">
+            <div>
+                @Html.LabelFor(m => m.Description)
+            </div>
+            @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+        </div>
+    </div>
+}

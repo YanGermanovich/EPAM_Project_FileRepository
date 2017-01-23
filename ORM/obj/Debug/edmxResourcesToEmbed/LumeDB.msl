@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище LumeDBModelContainer" CdmEntityContainer="LumeDBEntities">
+    <EntitySetMapping Name="Ratings">
+      <EntityTypeMapping TypeName="LumeDBModel.Rating">
+        <MappingFragment StoreEntitySet="Ratings">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Ratings_Mark" ColumnName="Ratings_Mark" />
+          <ScalarProperty Name="Ratings_id_Users" ColumnName="Ratings_id_Users" />
+          <ScalarProperty Name="Ratings_id_Resource" ColumnName="Ratings_id_Resource" />
+          <ScalarProperty Name="Rating_Date" ColumnName="Rating_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Resources">
+      <EntityTypeMapping TypeName="LumeDBModel.Resource">
+        <MappingFragment StoreEntitySet="Resource">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Resource_id_TypeResource" ColumnName="Resource_id_TypeResource" />
+          <ScalarProperty Name="Resource_id_User" ColumnName="Resource_id_User" />
+          <ScalarProperty Name="Resource_File" ColumnName="Resource_File" />
+          <ScalarProperty Name="Resource_Description" ColumnName="Resource_Description" />
+          <ScalarProperty Name="Resource_Views" ColumnName="Resource_Views" />
+          <ScalarProperty Name="Resource_Name" ColumnName="Resource_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="LumeDBModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Roles_Name" ColumnName="Roles_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeResources">
+      <EntityTypeMapping TypeName="LumeDBModel.TypeResource">
+        <MappingFragment StoreEntitySet="TypeResource">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TypeResource_name" ColumnName="TypeResource_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="LumeDBModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Users_Email" ColumnName="Users_Email" />
+          <ScalarProperty Name="Users_Password" ColumnName="Users_Password" />
+          <ScalarProperty Name="Users_id_Role" ColumnName="Users_id_Role" />
+          <ScalarProperty Name="Users_Creation_Date" ColumnName="Users_Creation_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

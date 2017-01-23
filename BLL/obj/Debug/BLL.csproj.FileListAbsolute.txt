@@ -1,0 +1,28 @@
+D:\Google Drive\EPAM\Lume\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+D:\Google Drive\EPAM\Lume\BLL\bin\Debug\BLL.dll
+D:\Google Drive\EPAM\Lume\BLL\bin\Debug\BLL.pdb
+D:\Google Drive\EPAM\Lume\BLL\bin\Debug\DAL.dll
+D:\Google Drive\EPAM\Lume\BLL\bin\Debug\ORM.dll
+D:\Google Drive\EPAM\Lume\BLL\bin\Debug\EntityFramework.dll
+D:\Google Drive\EPAM\Lume\BLL\bin\Debug\DAL.pdb
+D:\Google Drive\EPAM\Lume\BLL\bin\Debug\ORM.pdb
+D:\Google Drive\EPAM\Lume\BLL\bin\Debug\EntityFramework.xml
+D:\Google Drive\EPAM\Lume\BLL\obj\Debug\BLL.dll
+D:\Google Drive\EPAM\Lume\BLL\obj\Debug\BLL.pdb
+D:\Google Drive\EPAM\Lume\BLL\bin\Debug\CustomExpressionVisitor.dll
+D:\Google Drive\EPAM\Lume\BLL\bin\Debug\CustomExpressionVisitor.pdb
+D:\Google Drive\EPAM\Lume\BLL\bin\Debug\ru\EntityFramework.resources.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+D:\Documents\GitHub\EPAM_ProjectFileRepository\BLL\obj\Debug\BLL.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\BLL\obj\Debug\BLL.pdb
+D:\Documents\GitHub\EPAM_ProjectFileRepository\BLL\bin\Debug\BLL.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\BLL\bin\Debug\BLL.pdb
+D:\Documents\GitHub\EPAM_ProjectFileRepository\BLL\bin\Debug\CustomExpressionVisitor.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\BLL\bin\Debug\DAL.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\BLL\bin\Debug\ORM.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\BLL\bin\Debug\EntityFramework.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\BLL\bin\Debug\CustomExpressionVisitor.pdb
+D:\Documents\GitHub\EPAM_ProjectFileRepository\BLL\bin\Debug\DAL.pdb
+D:\Documents\GitHub\EPAM_ProjectFileRepository\BLL\bin\Debug\ORM.pdb
+D:\Documents\GitHub\EPAM_ProjectFileRepository\BLL\bin\Debug\EntityFramework.xml
+D:\Documents\GitHub\EPAM_ProjectFileRepository\BLL\bin\Debug\ru\EntityFramework.resources.dll

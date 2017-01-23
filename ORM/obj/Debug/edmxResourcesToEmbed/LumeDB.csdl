@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LumeDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Rating">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ratings_Mark" Type="Double" Nullable="false" />
+    <Property Name="Ratings_id_Users" Type="Int32" Nullable="false" />
+    <Property Name="Ratings_id_Resource" Type="Int32" Nullable="false" />
+    <Property Name="Rating_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Resource" Relationship="Self.Rating_To_Resource" FromRole="Ratings" ToRole="Resource" />
+    <NavigationProperty Name="User" Relationship="Self.Rating_To_User" FromRole="Ratings" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Resource">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Resource_id_TypeResource" Type="Int32" Nullable="false" />
+    <Property Name="Resource_id_User" Type="Int32" Nullable="false" />
+    <Property Name="Resource_File" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="Resource_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Resource_Views" Type="Int32" Nullable="false" />
+    <Property Name="Resource_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Ratings" Relationship="Self.Rating_To_Resource" FromRole="Resource" ToRole="Ratings" />
+    <NavigationProperty Name="TypeResource" Relationship="Self.Resource_To_TypeResource" FromRole="Resource" ToRole="TypeResource" />
+    <NavigationProperty Name="User" Relationship="Self.Resource_To_User" FromRole="Resource" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Roles_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Users" Relationship="Self.User_To_Role" FromRole="Roles" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="TypeResource">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeResource_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Resources" Relationship="Self.Resource_To_TypeResource" FromRole="TypeResource" ToRole="Resource" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Users_Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Users_Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Users_id_Role" Type="Int32" Nullable="false" />
+    <Property Name="Users_Creation_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Ratings" Relationship="Self.Rating_To_User" FromRole="Users" ToRole="Ratings" />
+    <NavigationProperty Name="Resources" Relationship="Self.Resource_To_User" FromRole="Users" ToRole="Resource" />
+    <NavigationProperty Name="Role" Relationship="Self.User_To_Role" FromRole="Users" ToRole="Roles" />
+  </EntityType>
+  <Association Name="Rating_To_Resource">
+    <End Role="Resource" Type="Self.Resource" Multiplicity="1" />
+    <End Role="Ratings" Type="Self.Rating" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resource">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ratings">
+        <PropertyRef Name="Ratings_id_Resource" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Rating_To_User">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Ratings" Type="Self.Rating" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ratings">
+        <PropertyRef Name="Ratings_id_Users" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Resource_To_TypeResource">
+    <End Role="TypeResource" Type="Self.TypeResource" Multiplicity="1" />
+    <End Role="Resource" Type="Self.Resource" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeResource">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Resource">
+        <PropertyRef Name="Resource_id_TypeResource" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Resource_To_User">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Resource" Type="Self.Resource" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Resource">
+        <PropertyRef Name="Resource_id_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="User_To_Role">
+    <End Role="Roles" Type="Self.Role" Multiplicity="1" />
+    <End Role="Users" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="Users_id_Role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LumeDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Ratings" EntityType="Self.Rating" />
+    <EntitySet Name="Resources" EntityType="Self.Resource" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="TypeResources" EntityType="Self.TypeResource" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="Rating_To_Resource" Association="Self.Rating_To_Resource">
+      <End Role="Resource" EntitySet="Resources" />
+      <End Role="Ratings" EntitySet="Ratings" />
+    </AssociationSet>
+    <AssociationSet Name="Rating_To_User" Association="Self.Rating_To_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Ratings" EntitySet="Ratings" />
+    </AssociationSet>
+    <AssociationSet Name="Resource_To_TypeResource" Association="Self.Resource_To_TypeResource">
+      <End Role="TypeResource" EntitySet="TypeResources" />
+      <End Role="Resource" EntitySet="Resources" />
+    </AssociationSet>
+    <AssociationSet Name="Resource_To_User" Association="Self.Resource_To_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Resource" EntitySet="Resources" />
+    </AssociationSet>
+    <AssociationSet Name="User_To_Role" Association="Self.User_To_Role">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

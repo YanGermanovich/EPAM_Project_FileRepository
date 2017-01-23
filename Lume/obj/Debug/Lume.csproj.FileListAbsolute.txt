@@ -1,0 +1,126 @@
+D:\Google Drive\EPAM\Lume\Lume\bin\Lume.dll.config
+D:\Google Drive\EPAM\Lume\Lume\bin\Lume.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\Lume.pdb
+D:\Google Drive\EPAM\Lume\Lume\bin\Antlr3.Runtime.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\EntityFramework.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\Microsoft.Web.Infrastructure.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\Newtonsoft.Json.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\System.Net.Http.Formatting.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\System.Web.Http.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\System.Web.Http.WebHost.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\System.Web.Mvc.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\System.Web.Optimization.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\System.Web.Providers.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\System.Web.Razor.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\System.Web.WebPages.Deployment.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\System.Web.WebPages.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\System.Web.WebPages.Razor.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\WebGrease.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\EntityFramework.xml
+D:\Google Drive\EPAM\Lume\Lume\bin\Newtonsoft.Json.xml
+D:\Google Drive\EPAM\Lume\Lume\bin\System.Net.Http.Formatting.xml
+D:\Google Drive\EPAM\Lume\Lume\bin\System.Web.Http.xml
+D:\Google Drive\EPAM\Lume\Lume\bin\System.Web.Http.WebHost.xml
+D:\Google Drive\EPAM\Lume\Lume\bin\System.Web.Mvc.xml
+D:\Google Drive\EPAM\Lume\Lume\bin\System.Web.Razor.xml
+D:\Google Drive\EPAM\Lume\Lume\bin\System.Web.WebPages.xml
+D:\Google Drive\EPAM\Lume\Lume\bin\System.Web.WebPages.Deployment.xml
+D:\Google Drive\EPAM\Lume\Lume\bin\System.Web.WebPages.Razor.xml
+D:\Google Drive\EPAM\Lume\Lume\bin\ru\EntityFramework.resources.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\ru\System.Net.Http.Formatting.resources.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\ru\System.Web.Http.resources.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\ru\System.Web.Http.WebHost.resources.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\ru\System.Web.Mvc.resources.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\ru\System.Web.Optimization.resources.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\ru\System.Web.Providers.resources.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\ru\System.Web.Razor.resources.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\ru\System.Web.WebPages.resources.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\ru\System.Web.WebPages.Deployment.resources.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\ru\System.Web.WebPages.Razor.resources.dll
+D:\Google Drive\EPAM\Lume\Lume\obj\Debug\Lume.dll
+D:\Google Drive\EPAM\Lume\Lume\obj\Debug\Lume.pdb
+D:\Google Drive\EPAM\Lume\Lume\obj\Debug\Lume.csprojResolveAssemblyReference.cache
+D:\Google Drive\EPAM\Lume\Lume\bin\BLL.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\DependencyResolver.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\Ninject.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\Ninject.Web.Common.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\Ninject.Web.Mvc.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\WebActivatorEx.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\DAL.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\ORM.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\BLL.pdb
+D:\Google Drive\EPAM\Lume\Lume\bin\DependencyResolver.pdb
+D:\Google Drive\EPAM\Lume\Lume\bin\Ninject.xml
+D:\Google Drive\EPAM\Lume\Lume\bin\Ninject.Web.Common.xml
+D:\Google Drive\EPAM\Lume\Lume\bin\Ninject.Web.Mvc.xml
+D:\Google Drive\EPAM\Lume\Lume\bin\DAL.pdb
+D:\Google Drive\EPAM\Lume\Lume\bin\ORM.pdb
+D:\Google Drive\EPAM\Lume\Lume\bin\CustomExpressionVisitor.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\CustomExpressionVisitor.pdb
+D:\Google Drive\EPAM\Lume\Lume\bin\EntityFramework.SqlServer.dll
+D:\Google Drive\EPAM\Lume\Lume\bin\EntityFramework.SqlServer.xml
+D:\Google Drive\EPAM\Lume\Lume\bin\ru\EntityFramework.SqlServer.resources.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\Lume.dll.config
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\Lume.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\Lume.pdb
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\Antlr3.Runtime.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\BLL.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\DependencyResolver.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\EntityFramework.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\EntityFramework.SqlServer.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\Microsoft.Web.Infrastructure.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\Newtonsoft.Json.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\Ninject.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\Ninject.Web.Common.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\Ninject.Web.Mvc.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\System.Net.Http.Formatting.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\System.Web.Http.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\System.Web.Http.WebHost.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\System.Web.Mvc.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\System.Web.Optimization.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\System.Web.Providers.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\System.Web.Razor.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\System.Web.WebPages.Deployment.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\System.Web.WebPages.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\System.Web.WebPages.Razor.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\WebActivatorEx.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\WebGrease.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\DAL.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\CustomExpressionVisitor.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\ORM.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\BLL.pdb
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\DependencyResolver.pdb
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\EntityFramework.xml
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\EntityFramework.SqlServer.xml
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\Newtonsoft.Json.xml
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\Ninject.xml
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\Ninject.Web.Common.xml
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\Ninject.Web.Mvc.xml
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\System.Net.Http.Formatting.xml
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\System.Web.Http.xml
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\System.Web.Http.WebHost.xml
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\System.Web.Mvc.xml
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\System.Web.Razor.xml
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\System.Web.WebPages.xml
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\System.Web.WebPages.Deployment.xml
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\System.Web.WebPages.Razor.xml
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\DAL.pdb
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\CustomExpressionVisitor.pdb
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\ORM.pdb
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\ru\EntityFramework.resources.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\ru\EntityFramework.SqlServer.resources.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\ru\System.Net.Http.Formatting.resources.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\ru\System.Web.Http.resources.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\ru\System.Web.Http.WebHost.resources.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\ru\System.Web.Mvc.resources.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\ru\System.Web.Optimization.resources.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\ru\System.Web.Providers.resources.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\ru\System.Web.Razor.resources.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\ru\System.Web.WebPages.resources.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\ru\System.Web.WebPages.Deployment.resources.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\bin\ru\System.Web.WebPages.Razor.resources.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\obj\Debug\Lume.csprojResolveAssemblyReference.cache
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\obj\Debug\Lume.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\Lume\obj\Debug\Lume.pdb

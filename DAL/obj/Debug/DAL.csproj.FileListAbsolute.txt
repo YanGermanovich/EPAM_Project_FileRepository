@@ -1,0 +1,32 @@
+D:\Google Drive\EPAM\Lume\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+D:\Google Drive\EPAM\Lume\DAL\bin\Debug\DAL.dll
+D:\Google Drive\EPAM\Lume\DAL\bin\Debug\DAL.pdb
+D:\Google Drive\EPAM\Lume\DAL\bin\Debug\EntityFramework.dll
+D:\Google Drive\EPAM\Lume\DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Google Drive\EPAM\Lume\DAL\bin\Debug\ORM.dll
+D:\Google Drive\EPAM\Lume\DAL\bin\Debug\ORM.pdb
+D:\Google Drive\EPAM\Lume\DAL\bin\Debug\EntityFramework.xml
+D:\Google Drive\EPAM\Lume\DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Google Drive\EPAM\Lume\DAL\obj\Debug\DAL.dll
+D:\Google Drive\EPAM\Lume\DAL\obj\Debug\DAL.pdb
+D:\Google Drive\EPAM\Lume\DAL\bin\Debug\CustomExpressionVisitor.dll
+D:\Google Drive\EPAM\Lume\DAL\bin\Debug\CustomExpressionVisitor.pdb
+D:\Google Drive\EPAM\Lume\DAL\bin\Debug\DAL.dll.config
+D:\Google Drive\EPAM\Lume\DAL\bin\Debug\ru\EntityFramework.resources.dll
+D:\Google Drive\EPAM\Lume\DAL\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+D:\Documents\GitHub\EPAM_ProjectFileRepository\DAL\obj\Debug\DAL.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\DAL\obj\Debug\DAL.pdb
+D:\Documents\GitHub\EPAM_ProjectFileRepository\DAL\bin\Debug\DAL.dll.config
+D:\Documents\GitHub\EPAM_ProjectFileRepository\DAL\bin\Debug\DAL.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\DAL\bin\Debug\DAL.pdb
+D:\Documents\GitHub\EPAM_ProjectFileRepository\DAL\bin\Debug\CustomExpressionVisitor.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\DAL\bin\Debug\EntityFramework.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\DAL\bin\Debug\ORM.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\DAL\bin\Debug\CustomExpressionVisitor.pdb
+D:\Documents\GitHub\EPAM_ProjectFileRepository\DAL\bin\Debug\ORM.pdb
+D:\Documents\GitHub\EPAM_ProjectFileRepository\DAL\bin\Debug\EntityFramework.xml
+D:\Documents\GitHub\EPAM_ProjectFileRepository\DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Documents\GitHub\EPAM_ProjectFileRepository\DAL\bin\Debug\ru\EntityFramework.resources.dll
+D:\Documents\GitHub\EPAM_ProjectFileRepository\DAL\bin\Debug\ru\EntityFramework.SqlServer.resources.dll

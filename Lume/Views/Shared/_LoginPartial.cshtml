@@ -1,0 +1,33 @@
+﻿@model Lume.Models.LogInViewModel
+@{
+    var options = new AjaxOptions()
+    {
+        UpdateTargetId = "logInForm",
+        InsertionMode = InsertionMode.Replace,
+        OnBegin = "LogInAjaxOnBegin",
+        OnSuccess = "LogInAjaxOnSucces"
+    };
+}
+<div class="loading_icon_container loading_hide" id="loading_icon">
+    <div class="loading_icon "></div>
+</div>
+@using (Ajax.BeginForm("Login", "Account", null, options, new { @class = "form", role = "form" }))
+{
+
+    <div id="logInForm">
+        @Html.Partial("_LogInFormPartial")
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block">Log in</button>
+    </div>
+}
+<script>
+    function LogInAjaxOnBegin() {
+        $("#logInForm").addClass("loading_hide");
+        $("#loading_icon").addClass("loading_show");
+    }
+    function LogInAjaxOnSucces(data) {
+        $("#logInForm").removeClass("loading_hide");
+        $("#loading_icon").removeClass("loading_show");
+    }
+</script>

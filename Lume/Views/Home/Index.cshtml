@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{
+    @Styles.Render("~/Content/themes/index");
+}
+
+    
+        <div class="options">
+            <div class="add-itemoptions_upload">
+                Add new resource
+                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModalUpload">Add</button>
+            </div>
+        </div>
+        <div class="all_items">
+            <table class="table table-striped resource_table" id="resource_table">
+                <thead>
+                    <tr>
+                        <th class="table_head_view_resource"></th>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Rating</th>
+                        <th>Views</th>
+                        <th>Size (MB)</th>
+                    </tr>
+                </thead>
+                <tbody id="table_body">
+                    @Html.Action("GetAllResource")
+                </tbody>
+            </table>
+        </div>
+<div class="modal fade" id="myModalUpload" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Add new resource</h4>
+            </div>
+            <div class="modal-body">
+                @Html.Action("Upload")
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    @Scripts.Render("~/bundles/indexJS")
+
+}

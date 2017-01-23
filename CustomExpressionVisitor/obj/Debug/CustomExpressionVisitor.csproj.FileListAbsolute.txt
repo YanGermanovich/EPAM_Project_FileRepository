@@ -1,0 +1,5 @@
+D:\Google Drive\EPAM\Lume\CustomExpressionVisitor\obj\Debug\CustomExpressionVisitor.csprojResolveAssemblyReference.cache
+D:\Google Drive\EPAM\Lume\CustomExpressionVisitor\bin\Debug\CustomExpressionVisitor.dll
+D:\Google Drive\EPAM\Lume\CustomExpressionVisitor\bin\Debug\CustomExpressionVisitor.pdb
+D:\Google Drive\EPAM\Lume\CustomExpressionVisitor\obj\Debug\CustomExpressionVisitor.dll
+D:\Google Drive\EPAM\Lume\CustomExpressionVisitor\obj\Debug\CustomExpressionVisitor.pdb

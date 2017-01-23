@@ -1,0 +1,11 @@
+﻿@model Lume.Models.SignUpViewModel
+
+@{
+    ViewBag.Title = "Sign up";
+}
+<div class="panel signUpForm">
+    @Html.Partial("_GetSignUpForm")
+</div>
+@section styles{
+    <link href="~/Content/myThemes/signUp.css" rel="stylesheet">
+}

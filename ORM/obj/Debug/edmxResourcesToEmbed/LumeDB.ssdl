@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище LumeDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Ratings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ratings_Mark" Type="float" Nullable="false" />
+    <Property Name="Ratings_id_Users" Type="int" Nullable="false" />
+    <Property Name="Ratings_id_Resource" Type="int" Nullable="false" />
+    <Property Name="Rating_Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Resource">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Resource_id_TypeResource" Type="int" Nullable="false" />
+    <Property Name="Resource_id_User" Type="int" Nullable="false" />
+    <Property Name="Resource_File" Type="varbinary(max)" Nullable="false" />
+    <Property Name="Resource_Description" Type="nvarchar(max)" />
+    <Property Name="Resource_Views" Type="int" Nullable="false" />
+    <Property Name="Resource_Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Roles_Name" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="TypeResource">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypeResource_name" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Users_Email" Type="varchar(max)" Nullable="false" />
+    <Property Name="Users_Password" Type="varchar(max)" Nullable="false" />
+    <Property Name="Users_id_Role" Type="int" Nullable="false" />
+    <Property Name="Users_Creation_Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="Rating_To_Resource">
+    <End Role="Resource" Type="Self.Resource" Multiplicity="1" />
+    <End Role="Ratings" Type="Self.Ratings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resource">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ratings">
+        <PropertyRef Name="Ratings_id_Resource" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Rating_To_User">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Ratings" Type="Self.Ratings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ratings">
+        <PropertyRef Name="Ratings_id_Users" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Resource_To_TypeResource">
+    <End Role="TypeResource" Type="Self.TypeResource" Multiplicity="1" />
+    <End Role="Resource" Type="Self.Resource" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeResource">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Resource">
+        <PropertyRef Name="Resource_id_TypeResource" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Resource_To_User">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Resource" Type="Self.Resource" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Resource">
+        <PropertyRef Name="Resource_id_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="User_To_Role">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="Users_id_Role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище LumeDBModelContainer">
+    <EntitySet Name="Ratings" EntityType="Self.Ratings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Resource" EntityType="Self.Resource" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypeResource" EntityType="Self.TypeResource" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="Rating_To_Resource" Association="Self.Rating_To_Resource">
+      <End Role="Resource" EntitySet="Resource" />
+      <End Role="Ratings" EntitySet="Ratings" />
+    </AssociationSet>
+    <AssociationSet Name="Rating_To_User" Association="Self.Rating_To_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Ratings" EntitySet="Ratings" />
+    </AssociationSet>
+    <AssociationSet Name="Resource_To_TypeResource" Association="Self.Resource_To_TypeResource">
+      <End Role="TypeResource" EntitySet="TypeResource" />
+      <End Role="Resource" EntitySet="Resource" />
+    </AssociationSet>
+    <AssociationSet Name="Resource_To_User" Association="Self.Resource_To_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Resource" EntitySet="Resource" />
+    </AssociationSet>
+    <AssociationSet Name="User_To_Role" Association="Self.User_To_Role">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
