@@ -182,6 +182,7 @@
     <Content Include="Content\myThemes\modal_slide.css" />
     <Content Include="Content\myThemes\search.css" />
     <Content Include="Content\myThemes\search.dataTables-min.css" />
+    <Content Include="Content\myThemes\SignIn.css" />
     <Content Include="Content\myThemes\signUp.css" />
     <Content Include="Content\myThemes\star-rating-min.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -265,11 +266,13 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\myScripts\bootstrap3_player.js" />
     <Content Include="Scripts\myScripts\common.js" />
+    <Content Include="Scripts\myScripts\commonAuth.js" />
     <Content Include="Scripts\myScripts\dataTables.bootstrap-min.js" />
     <Content Include="Scripts\myScripts\fileinput-min.js" />
     <Content Include="Scripts\myScripts\home_page.js" />
     <Content Include="Scripts\myScripts\index.js" />
     <Content Include="Scripts\myScripts\jquery.dataTables-min.js" />
+    <Content Include="Scripts\myScripts\login.js" />
     <Content Include="Scripts\myScripts\npm.js" />
     <Content Include="Scripts\myScripts\search.js" />
     <Content Include="Scripts\myScripts\star-rating-min.js" />
@@ -299,6 +302,9 @@
     <Content Include="Views\Home\_Upload.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\Home\_Edit.cshtml" />
+    <Content Include="Views\Shared\_Index.cshtml" />
+    <Content Include="Views\Shared\_Search.cshtml" />
+    <Content Include="Views\Account\SignIn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\fonts\" />

@@ -18,20 +18,17 @@ namespace Lume
                         "~/Scripts/jquery.unobtrusive*",
                         "~/Scripts/jquery.validate*"));
             bundles.Add(new ScriptBundle("~/bundles/common").Include(
-                        "~/Scripts/myScripts/bootstrap-min.js"));
-            bundles.Add(new ScriptBundle("~/bundles/authenticated").Include(
-
+                        "~/Scripts/myScripts/bootstrap-min.js",
                         "~/Scripts/myScripts/common.js"));
-            bundles.Add(new ScriptBundle("~/bundles/indexJS").Include(
-                        "~/Scripts/myScripts/jquery.dataTables-min.js",
+            bundles.Add(new ScriptBundle("~/bundles/authenticated").Include(
                         "~/Scripts/myScripts/star-rating-min.js",
+                        "~/Scripts/myScripts/commonAuth.js"));
+            bundles.Add(new ScriptBundle("~/bundles/indexJS").Include(
                         "~/Scripts/myScripts/bootstrap-select-min.js",
-                        "~/Scripts/myScripts/dataTables.bootstrap-min.js",
                         "~/Scripts/myScripts/fileinput-min.js",
                         "~/Scripts/myScripts/index.js"));
             bundles.Add(new ScriptBundle("~/bundles/searchJS").Include(
-                        "~/Scripts/myScripts/jquery.dataTables-min.js",
-                        "~/Scripts/myScripts/star-rating-min.js",
+
                         "~/Scripts/myScripts/search.js"));
 
 

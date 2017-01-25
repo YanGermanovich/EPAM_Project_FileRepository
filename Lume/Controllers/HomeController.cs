@@ -28,6 +28,10 @@ namespace Lume.Controllers
 
         public ActionResult Index()
         {
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_Index");
+            }
             Session["userId"] = _userService.GetByEmail(User.Identity.Name).Id;
             return View();
         }
@@ -153,7 +157,10 @@ namespace Lume.Controllers
         }
         public ActionResult Search()
         {
-
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_Search");
+            }
             return View();
         }
 

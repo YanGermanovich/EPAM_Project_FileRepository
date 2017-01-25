@@ -1,0 +1,27 @@
+﻿@Styles.Render("~/Content/themes/index")
+<div class="options">
+    <div class="add-itemoptions_upload">
+        Add new resource
+        <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModalUpload">Add</button>
+    </div>
+</div>
+<div class="all_items">
+    <table class="table table-striped resource_table" id="resource_table">
+        <thead>
+            <tr>
+                <th class="table_head_view_resource"></th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Rating</th>
+                <th>Views</th>
+                <th>Size (MB)</th>
+            </tr>
+        </thead>
+        <tbody id="table_body">
+            @Html.Action("GetAllResource")
+        </tbody>
+    </table>
+</div>
+@Scripts.Render("~/bundles/indexJS")
+<script src="~/Scripts/myScripts/jquery.dataTables-min.js"></script>
+<script src="~/Scripts/myScripts/dataTables.bootstrap-min.js"></script>

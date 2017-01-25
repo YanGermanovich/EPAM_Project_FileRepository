@@ -15,6 +15,11 @@ function filterColumn(i) {
 }
 
 $(document).ready(function () {
+    DataTable();
+});
+
+function DataTable()
+{
     $('input.global_filter').on('keyup click', function () {
         filterGlobal();
     });
@@ -32,4 +37,4 @@ $(document).ready(function () {
         // Toggle the visibility
         column.visible(!column.visible());
     });
-});
+}

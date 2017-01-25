@@ -1,0 +1,11 @@
+﻿@model Lume.Models.LogInViewModel
+@section styles{
+    <link href="~/Content/myThemes/SignIn.css", rel="stylesheet" />
+}
+@{
+    ViewBag.Title = "SignIn";
+}
+<div class="container-fluid signInForm">
+    @Html.Partial("_LoginPartial", Model)
+    @Html.ActionLink("Sign up","SignUp", "Account")
+</div>

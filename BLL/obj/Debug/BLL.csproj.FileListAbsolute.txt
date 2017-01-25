@@ -26,3 +26,17 @@ D:\Documents\GitHub\EPAM_ProjectFileRepository\BLL\bin\Debug\DAL.pdb
 D:\Documents\GitHub\EPAM_ProjectFileRepository\BLL\bin\Debug\ORM.pdb
 D:\Documents\GitHub\EPAM_ProjectFileRepository\BLL\bin\Debug\EntityFramework.xml
 D:\Documents\GitHub\EPAM_ProjectFileRepository\BLL\bin\Debug\ru\EntityFramework.resources.dll
+D:\Documents\GitHub\EPAM_Project_FileRepository\BLL\bin\Debug\BLL.dll
+D:\Documents\GitHub\EPAM_Project_FileRepository\BLL\bin\Debug\BLL.pdb
+D:\Documents\GitHub\EPAM_Project_FileRepository\BLL\bin\Debug\CustomExpressionVisitor.dll
+D:\Documents\GitHub\EPAM_Project_FileRepository\BLL\bin\Debug\DAL.dll
+D:\Documents\GitHub\EPAM_Project_FileRepository\BLL\bin\Debug\ORM.dll
+D:\Documents\GitHub\EPAM_Project_FileRepository\BLL\bin\Debug\EntityFramework.dll
+D:\Documents\GitHub\EPAM_Project_FileRepository\BLL\bin\Debug\CustomExpressionVisitor.pdb
+D:\Documents\GitHub\EPAM_Project_FileRepository\BLL\bin\Debug\DAL.pdb
+D:\Documents\GitHub\EPAM_Project_FileRepository\BLL\bin\Debug\ORM.pdb
+D:\Documents\GitHub\EPAM_Project_FileRepository\BLL\bin\Debug\EntityFramework.xml
+D:\Documents\GitHub\EPAM_Project_FileRepository\BLL\bin\Debug\ru\EntityFramework.resources.dll
+D:\Documents\GitHub\EPAM_Project_FileRepository\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+D:\Documents\GitHub\EPAM_Project_FileRepository\BLL\obj\Debug\BLL.dll
+D:\Documents\GitHub\EPAM_Project_FileRepository\BLL\obj\Debug\BLL.pdb

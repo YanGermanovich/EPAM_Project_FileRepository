@@ -46,11 +46,19 @@ namespace Lume.Controllers
                     FormsAuthentication.SetAuthCookie(viewModel.Email, viewModel.RememberMe);
                     if (Url.IsLocalUrl(returnUrl))
                     {
-                        return JavaScript("window.location ='"+returnUrl+"'");
+                        if (Request.IsAjaxRequest())
+                        {
+                            return JavaScript("window.location ='" + returnUrl + "'");
+                        }
+                        return RedirectToAction(returnUrl);               
                     }
                     else
                     {
-                        return JavaScript("window.location = '"+Url.Action("Index","Home")+"'");
+                        if (Request.IsAjaxRequest())
+                        {
+                            return JavaScript("window.location = '" + Url.Action("Index", "Home") + "'");
+                        }
+                        return RedirectToAction("Index", "Home");        
                     }
                 }
                 else
@@ -58,7 +66,22 @@ namespace Lume.Controllers
                     ModelState.AddModelError("", "Incorrect login or password.");
                 }
             }
-            return PartialView("_LogInFormPartial");
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_LogInFormPartial");
+            }
+            return View("SignIn");
+        }
+
+        [AllowAnonymous]
+        public ActionResult SignIn()
+        {
+            return View();
+        }
+        [AllowAnonymous]
+        public ActionResult SignUp()
+        {
+            return View();
         }
 
         [HttpPost]
@@ -124,6 +147,17 @@ namespace Lume.Controllers
             // Dispose of the CAPTCHA image object.
             ci.Dispose();
             return null;
+        }
+
+        [AllowAnonymous]
+        public ActionResult GetLogInForm()
+        {
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_LogInPartial");
+            }
+            else
+                return null;
         }
 
     }

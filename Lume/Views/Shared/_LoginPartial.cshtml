@@ -11,9 +11,8 @@
 <div class="loading_icon_container loading_hide" id="loading_icon">
     <div class="loading_icon "></div>
 </div>
-@using (Ajax.BeginForm("Login", "Account", null, options, new { @class = "form", role = "form" }))
+@using (Html.BeginForm("Login", "Account", FormMethod.Post ,new { @class = "form", role = "form", id="loginDropdown" }))
 {
-
     <div id="logInForm">
         @Html.Partial("_LogInFormPartial")
     </div>
@@ -21,13 +20,6 @@
         <button type="submit" class="btn btn-primary btn-block">Log in</button>
     </div>
 }
-<script>
-    function LogInAjaxOnBegin() {
-        $("#logInForm").addClass("loading_hide");
-        $("#loading_icon").addClass("loading_show");
-    }
-    function LogInAjaxOnSucces(data) {
-        $("#logInForm").removeClass("loading_hide");
-        $("#loading_icon").removeClass("loading_show");
-    }
+<script src="~/Scripts/myScripts/login.js">
+    
 </script>

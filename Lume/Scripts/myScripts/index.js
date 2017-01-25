@@ -3,6 +3,9 @@
         allowedFileExtensions: ["mp4", "avi", "mkv", "mp3", "txt", "doc", "docx"],
         elErrorContainer: "#errorBlock"
     });
-    $('#resource_table').DataTable();
+    DataTable();
 
 });
+function DataTable() {
+    $('#resource_table').DataTable();
+}
