@@ -16,15 +16,15 @@ namespace Lume.Models
     public class ResourceViewModel
     {
         public int Id { get; set; }
-
-        [Required(ErrorMessage = "Please enter resource type")]
         public TypeResource TypeResource { get; set; }
         public int id_User { get; set; }
 
+        [Required(ErrorMessage = "Please enter resource name")]
         [Display(Name = "File")]
         public HttpPostedFileBase UploadFile { get; set; }
         public byte[] DownloadFile{ get; set; }
 
+        [Required(ErrorMessage = "Please enter resource Description")]
         [Display(Name = "Description")]
         public string Description { get; set; }
         public int Views { get; set; }

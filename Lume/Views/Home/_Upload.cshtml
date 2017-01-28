@@ -1,7 +1,7 @@
 ﻿@using Lume.Models;
 @model ResourceViewModel
 
-@using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { @class = "modal_upload_form", enctype = "multipart/form-data" }))
+@using (Html.BeginForm("UploadModel", "Home", FormMethod.Post, new { @class = "modal_upload_form", enctype = "multipart/form-data", id = "uploadForm" }))
 {
     <div class="row">
 
@@ -26,8 +26,11 @@
         <div class="form-group modal_upload_form_name col-sm-6">
             <div>
                 @Html.LabelFor(m => m.Description)
+                
             </div>
             @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Description, null, new { @class = "text-danger" })
         </div>
     </div>
+    <input type="submit" value="Upload" class="btn btn-primary" />
 }

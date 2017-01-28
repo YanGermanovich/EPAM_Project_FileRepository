@@ -26,6 +26,7 @@ function SetHandlerRating() {
 function InitializeRating(selector)
 {
     $(selector).rating();
+    
 }
 
 function RefreshForm(page) {
@@ -37,7 +38,6 @@ function RefreshForm(page) {
         $.get("//" + document.location.host + "/Home/GetMostPopular", function (data) {
             $("#most_popular_container").html(data);
             InitializeForm();
-            DataTable();
         });
         
 
@@ -65,9 +65,13 @@ function InitializeForm() {
         if (confirm("Are you sure you want delete this resource?")) {
             $.get("//" + document.location.host + "/Home/Remove", "id_resource=" + $(this).attr("value"), function () {
                 RefreshForm();
-                $('#resource_table').DataTable();
             });
         }
     });
-    
+    $(".changePage").on("click", function (e) {
+        e.preventDefault();
+        RefreshForm($(this).attr("href"))
+    })
+    $(".rating_number_noJS").addClass("rating_number");
+    InitializeCurrentForm();
 }

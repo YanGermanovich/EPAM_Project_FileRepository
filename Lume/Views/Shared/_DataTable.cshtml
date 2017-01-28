@@ -1,0 +1,35 @@
+﻿@using Lume.Models
+@model PaginationViewModel
+
+
+
+
+        
+    <table class="table table-striped resource_table" id="resource_table">
+        <thead>
+            <tr>
+                <th class="table_head_view_resource"></th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Rating</th>
+                <th>Views</th>
+                <th>Size (MB)</th>
+            </tr>
+        </thead>
+        <tbody id="table_body">
+            @Html.Action("GetAllResource", Model.CurrentPage)
+        </tbody>
+    </table>
+    @Html.ActionLink("<<",
+                    Model.ActionName,
+                    "Home",
+                    new { id = Model.CurrentPage - 1 },
+                            new { @class = "btn btn-default changePage " + (Model.CurrentPage == 1 ? "disabled" : "") })
+    <div class="pagination_current">
+        @Model.CurrentPage
+    </div>
+    @Html.ActionLink(">>",
+                    Model.ActionName,
+                    "Home",
+                    new { id = Model.CurrentPage + 1 },
+                                    new { @class = "btn btn-default changePage " + (Model.CurrentPage == Model.PagesCount ? "disabled" : "") })

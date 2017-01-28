@@ -1,5 +1,7 @@
-﻿@{
+﻿@using Lume.Models
+@model PaginationViewModel
+@{
     ViewBag.Title = "Search";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@Html.Partial("_Search");
+@Html.Partial("_Search",Model)

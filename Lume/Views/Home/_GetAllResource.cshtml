@@ -1,6 +1,7 @@
 ﻿@using Lume.Models;
 @model IEnumerable<ResourceViewModel>
 
+
 @foreach (var resource in Model)
 {
     <tr>
@@ -12,12 +13,12 @@
                 <button id="editResource" class="edit_resource_btn" data-toggle="modal" data-target="#myModalEdit">
                     @Ajax.ActionLink("Edit", "Edit", "Home", new { id_resource = @resource.Id }, new AjaxOptions() { UpdateTargetId = "editForm", InsertionMode = InsertionMode.Replace }, new { @class = "glyphicon glyphicon-edit" })
                 </button>
-    <span value="@resource.Id" class=" delResource del_resource_btn glyphicon glyphicon-remove"></span>
+                <span value="@resource.Id" class=" delResource del_resource_btn glyphicon glyphicon-remove"></span>
             }
         </td>
         <td>@resource.Name</td>
         <td>@resource.TypeResource</td>
-        <td><div class="rating_stars"><input class="rating" value="@resource.Rating.ToString().Replace(',','.')" data-step='0.1' readonly data-size="xs" data-show-clear="false"></div><span class="rating_number">@resource.Rating</span></td>
+        <td><div class="rating_stars"><input class="rating" value="@resource.Rating.ToString().Replace(',','.')" data-step='0.1' readonly data-size="xs" data-show-clear="false"></div><span class="rating_number_noJS ">@resource.Rating</span></td>
         <td>@resource.Views</td>
         <td>@resource.Size</td>
     </tr>

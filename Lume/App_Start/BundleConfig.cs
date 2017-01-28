@@ -24,12 +24,12 @@ namespace Lume
                         "~/Scripts/myScripts/star-rating-min.js",
                         "~/Scripts/myScripts/commonAuth.js"));
             bundles.Add(new ScriptBundle("~/bundles/indexJS").Include(
-                        "~/Scripts/myScripts/bootstrap-select-min.js",
                         "~/Scripts/myScripts/fileinput-min.js",
                         "~/Scripts/myScripts/index.js"));
             bundles.Add(new ScriptBundle("~/bundles/searchJS").Include(
-
                         "~/Scripts/myScripts/search.js"));
+            bundles.Add(new ScriptBundle("~/bundles/loginJS").Include(
+                        "~/Scripts/myScripts/login.js"));
 
 
             // Используйте версию Modernizr для разработчиков, чтобы учиться работать. Когда вы будете готовы перейти к работе,
@@ -56,14 +56,12 @@ namespace Lume
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
             bundles.Add(new StyleBundle("~/Content/themes/index").Include(
-                        "~/Content/myThemes/dataTables.bootstrap-min.css",
                         "~/Content/myThemes/star-rating-min.css",
                         "~/Content/myThemes/modal_slide.css",
                         "~/Content/myThemes/bootstrap-select-min.css",
                         "~/Content/myThemes/fileinput-min.css",
                         "~/Content/myThemes/index.css"));
             bundles.Add(new StyleBundle("~/Content/themes/search").Include(
-                        "~/Content/myThemes/search.dataTables-min.css",
                         "~/Content/myThemes/star-rating-min.css",
                         "~/Content/myThemes/modal_slide.css",
                         "~/Content/myThemes/search.css"));

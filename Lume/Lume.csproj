@@ -156,6 +156,7 @@
     <Compile Include="Infrastructure\Mappers\UserModelMapper.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Models\LogInViewModel.cs" />
+    <Compile Include="Models\PaginationViewModel.cs" />
     <Compile Include="Models\RatingViewModel.cs" />
     <Compile Include="Models\RecourseViewModel.cs" />
     <Compile Include="Models\SignUpViewModel.cs" />
@@ -305,6 +306,8 @@
     <Content Include="Views\Shared\_Index.cshtml" />
     <Content Include="Views\Shared\_Search.cshtml" />
     <Content Include="Views\Account\SignIn.cshtml" />
+    <Content Include="Views\Shared\_DataTable.cshtml" />
+    <Content Include="Views\Home\Upload.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\fonts\" />

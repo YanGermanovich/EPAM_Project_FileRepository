@@ -28,12 +28,23 @@ namespace Lume.Controllers
 
         public ActionResult Index()
         {
-            if (Request.IsAjaxRequest())
+            var resourcesCount = _resourceService.GetAllEntities().Count() / 6;
+            var pagination = new PaginationViewModel()
             {
-                return PartialView("_Index");
+                ActionName = "Index",
+                PagesCount = resourcesCount + 1,
+                CurrentPage = 1
+            };
+            if (Request.RequestContext.RouteData.Values.Any(val => val.Key == "id"))
+            {
+                pagination.CurrentPage = Convert.ToInt32(Request.RequestContext.RouteData.Values["id"]);
             }
             Session["userId"] = _userService.GetByEmail(User.Identity.Name).Id;
-            return View();
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_Index", pagination);
+            }
+            return View(pagination);
         }
 
         public ActionResult GetMostPopular()
@@ -63,9 +74,24 @@ namespace Lume.Controllers
         }
 
 
-        public ActionResult GetAllResource()
+        public ActionResult DataTable(PaginationViewModel model)
         {
-            var resources = _resourceService.GetAllEntities().Select(res => res.ToMvcResource());
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_DataTable", model);
+            }
+            return PartialView("_DataTable", model);
+        }
+
+        public ActionResult GetAllResource(int? currentPage)
+        {
+            var resources = _resourceService.GetAllEntities().Select(res => res.ToMvcResource()).ToList();
+            if (currentPage != null)
+            {
+                var n = (int)(currentPage - 1) * 5;
+                var skip = resources.Skip(n).ToList();
+                resources = skip.Take(5).ToList();
+            }
             return PartialView("_GetAllResource", resources);
         }
 
@@ -81,63 +107,52 @@ namespace Lume.Controllers
             return Json(new object[] { mvc_resource, isRated });
         }
 
-        public ActionResult Upload()
+        public ActionResult PartialUpload()
         {
             return PartialView("_Upload");
         }
 
-        [HttpPost]
-        public ActionResult Upload(ResourceViewModel resource)
+        public ActionResult Upload()
         {
-            string fileType = string.Empty;
-            var enumerator = resource.UploadFile.FileName.Reverse().GetEnumerator();
-            try
-            {
-                while (enumerator.MoveNext() && enumerator.Current != '.')
-                {
-                    var item = enumerator.Current;
-                    fileType += item;
-                }
-            }
-            finally
-            {
-                if (enumerator != null)
-                {
-                    enumerator.Dispose();
-                }
-            }
-            fileType = new string((fileType + ".").Reverse().ToArray());
-            resource.Name += fileType;
-            switch (fileType)
-            {
-                case ".mp4":
-                case ".avi": 
-                case ".mkv":{
-                    resource.TypeResource = TypeResource.Video;
-                    break;
-                }
-                case ".mp3":
-                    {
-                        resource.TypeResource = TypeResource.Audio;
-                        break;
-                    }
-                case".txt":
-                case".doc":
-                case ".docx":
-                    {
-                        resource.TypeResource = TypeResource.Text;
-                        break;
-                    }
-                default:
-                    {
-                        ModelState.AddModelError("UploadFile", "Incorrect file extension.");
-                        break;
-                    }
+            return View();
+        }
 
+        [HttpPost]
+        public ActionResult Upload(string Name, string Description, HttpPostedFileBase UploadFile)
+        {
+            var resource = new ResourceViewModel();
+            resource.Name = Name;
+            resource.Description = Description;
+            resource.UploadFile = UploadFile;
+
+            if (Request.IsAjaxRequest())
+            {
+                resource.UploadFile = Request.Files["file"];
             }
-            resource.id_User = (int)Session["userId"];
-            _resourceService.Create(resource.ToBllResource());
-            return RedirectToAction("Index", "Home");
+            var result = UploadHelper(resource);
+            if (result != null)
+                return result;
+
+            if (Request.IsAjaxRequest())
+                return null;
+            else
+                return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        public ActionResult UploadModel(ResourceViewModel resource)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = UploadHelper(resource);
+                if (result != null)
+                    return result;
+            }
+            else
+            {
+                return View("Upload");
+            }
+                return RedirectToAction("Index", "Home");
         }
 
 
@@ -149,19 +164,33 @@ namespace Lume.Controllers
         [HttpPost]
         public ActionResult Edit(ResourceViewModel model)
         {
-            var current_resource = _resourceService.GetEntitieById(model.Id);
-            current_resource.Name = model.Name;
-            current_resource.Description = model.Description;
-            _resourceService.Update(current_resource);
+            if (ModelState.IsValid)
+            {
+                var current_resource = _resourceService.GetEntitieById(model.Id);
+                current_resource.Name = model.Name;
+                current_resource.Description = model.Description;
+                _resourceService.Update(current_resource);
+            }
             return RedirectToAction("Index", "Home");
         }
         public ActionResult Search()
         {
+            var resourcesCount = _resourceService.GetAllEntities().Count() / 6;
+            var pagination = new PaginationViewModel()
+            {
+                ActionName = "Search",
+                PagesCount = resourcesCount + 1,
+                CurrentPage = 1
+            };
+            if (Request.RequestContext.RouteData.Values.Any(val => val.Key == "id"))
+            {
+                pagination.CurrentPage = Convert.ToInt32(Request.RequestContext.RouteData.Values["id"]);
+            }
             if (Request.IsAjaxRequest())
             {
-                return PartialView("_Search");
+                return PartialView("_Search", pagination);
             }
-            return View();
+            return View(pagination);
         }
 
         public FileResult Download(int id_resource)
@@ -195,6 +224,65 @@ namespace Lume.Controllers
             }
             _resourceService.Delete(_resourceService.GetEntitieById(id_resource));
 
+            return null;
+        }
+
+        private ActionResult UploadHelper(ResourceViewModel resource)
+        {
+
+            string fileType = string.Empty;
+            var enumerator = resource.UploadFile.FileName.Reverse().GetEnumerator();
+            try
+            {
+                while (enumerator.MoveNext() && enumerator.Current != '.')
+                {
+                    var item = enumerator.Current;
+                    fileType += item;
+                }
+            }
+            finally
+            {
+                if (enumerator != null)
+                {
+                    enumerator.Dispose();
+                }
+            }
+            fileType = new string((fileType + ".").Reverse().ToArray());
+            resource.Name += fileType;
+            switch (fileType)
+            {
+                case ".mp4":
+                case ".avi":
+                case ".mkv":
+                    {
+                        resource.TypeResource = TypeResource.Video;
+                        break;
+                    }
+                case ".mp3":
+                    {
+                        resource.TypeResource = TypeResource.Audio;
+                        break;
+                    }
+                case ".txt":
+                case ".doc":
+                case ".docx":
+                    {
+                        resource.TypeResource = TypeResource.Text;
+                        break;
+                    }
+                default:
+                    {
+
+                        ModelState.AddModelError("UploadFile", "Incorrect file extension.");
+                        if (Request.IsAjaxRequest())
+                            return PartialView("_Upload");
+                        else
+                            return View();
+                    }
+
+            }
+            resource.id_User = (int)Session["userId"];
+            _resourceService.Create(resource.ToBllResource());
             return null;
         }
     }
