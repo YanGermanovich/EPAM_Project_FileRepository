@@ -8,6 +8,9 @@ using Lume.Models;
 using System.IO;
 using Lume.Infrastructure.Mappers;
 using System.ComponentModel.DataAnnotations;
+using System.Linq.Expressions;
+using BLL.Entities;
+using System.Web.Routing;
 
 namespace Lume.Controllers
 {
@@ -28,6 +31,7 @@ namespace Lume.Controllers
 
         public ActionResult Index()
         {
+            Session["search"] = null;
             var resourcesCount = _resourceService.GetAllEntities().Count() / 6;
             var pagination = new PaginationViewModel()
             {
@@ -66,13 +70,6 @@ namespace Lume.Controllers
             return PartialView("_GetMostPopular", most_popular);
         }
 
-        private double GetPopularity(double mark, double view, double max_views, double global_rating)
-        {
-
-            var w = max_views > 0 ? view / max_views : 1;
-            return w * mark + (1 - w) * global_rating;
-        }
-
 
         public ActionResult DataTable(PaginationViewModel model)
         {
@@ -86,6 +83,8 @@ namespace Lume.Controllers
         public ActionResult GetAllResource(int? currentPage)
         {
             var resources = _resourceService.GetAllEntities().Select(res => res.ToMvcResource()).ToList();
+            if (Session["search"] != null)
+                resources = resources.Where(((SearchViewModel) Session["search"]).GetPredicate()).ToList();
             if (currentPage != null)
             {
                 var n = (int)(currentPage - 1) * 5;
@@ -95,7 +94,6 @@ namespace Lume.Controllers
             return PartialView("_GetAllResource", resources);
         }
 
-        [HttpPost]
         public ActionResult ResourceView(int id_resource)
         {
             var current_resource = _resourceService.GetEntitieById(id_resource);
@@ -104,7 +102,10 @@ namespace Lume.Controllers
             var mvc_resource = current_resource.ToMvcResource();
             mvc_resource.DownloadFile = null;
             var isRated = _ratingService.GetFirstByPredicate(rat => rat.id_Users == (int)Session["userId"] && rat.id_Resource == id_resource) != null;
-            return Json(new object[] { mvc_resource, isRated });
+            if (Request.IsAjaxRequest())
+                return Json(new object[] { mvc_resource, isRated });
+            else
+                return View("ResourceView", new object[] { mvc_resource, isRated });
         }
 
         public ActionResult PartialUpload()
@@ -142,6 +143,9 @@ namespace Lume.Controllers
         [HttpPost]
         public ActionResult UploadModel(ResourceViewModel resource)
         {
+
+            if (resource.UploadFile == null)
+                ModelState.AddModelError("UploadFile", "Pleas enter file");
             if (ModelState.IsValid)
             {
                 var result = UploadHelper(resource);
@@ -152,14 +156,16 @@ namespace Lume.Controllers
             {
                 return View("Upload");
             }
-                return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Home");
         }
-
 
         public ActionResult Edit(int id_resource)
         {
             var current_resource = _resourceService.GetEntitieById(id_resource).ToMvcResource();
-            return PartialView("_Edit", current_resource);
+            if (Request.IsAjaxRequest())
+                return PartialView("_Edit", current_resource);
+            else
+                return View(current_resource);
         }
         [HttpPost]
         public ActionResult Edit(ResourceViewModel model)
@@ -170,12 +176,19 @@ namespace Lume.Controllers
                 current_resource.Name = model.Name;
                 current_resource.Description = model.Description;
                 _resourceService.Update(current_resource);
+                return RedirectToAction("Index", "Home");
             }
-            return RedirectToAction("Index", "Home");
+            if (Request.IsAjaxRequest())
+                return RedirectToAction("Index", "Home");
+            else
+                return View(model);
         }
         public ActionResult Search()
         {
+            var resources = _resourceService.GetAllEntities().Select(res => res.ToMvcResource()).ToList();
             var resourcesCount = _resourceService.GetAllEntities().Count() / 6;
+            if (Session["search"] != null)
+                resourcesCount = resources.Where(((SearchViewModel)Session["search"]).GetPredicate()).Count() / 6;
             var pagination = new PaginationViewModel()
             {
                 ActionName = "Search",
@@ -193,26 +206,76 @@ namespace Lume.Controllers
             return View(pagination);
         }
 
+        public ActionResult SearchForm()
+        {
+            if (Session["search"] != null)
+                return PartialView("_SearchForm", (SearchViewModel)Session["search"]);
+            else
+                return PartialView("_SearchForm");
+        }
+
+        [HttpPost]
+        public ActionResult SearchForm(SearchViewModel model)
+        {
+            Session["search"] = model;
+            if (Request.IsAjaxRequest())
+            {
+                var resources = _resourceService.GetAllEntities().Select(res => res.ToMvcResource()).ToList();
+                var resourcesCount = _resourceService.GetAllEntities().Count() / 6;
+                if (Session["search"] != null)
+                    resourcesCount = resources.Where(((SearchViewModel)Session["search"]).GetPredicate()).Count() / 6;
+                var pagination = new PaginationViewModel()
+                {
+                    ActionName = "Search",
+                    PagesCount = resourcesCount + 1,
+                    CurrentPage = 1
+                };
+                return DataTable(pagination);
+            }
+            else
+            {
+                return RedirectToAction("Search", "Home");
+            }
+        }
+
         public FileResult Download(int id_resource)
         {
             var resource = _resourceService.GetEntitieById(id_resource);
             return File(resource.File, System.Net.Mime.MediaTypeNames.Application.Octet, resource.Name);
         }
 
-        public ActionResult Rating(double mark, int id_resource)
+        [ChildActionOnly]
+        public ActionResult Rating(int id_resource, double mark)
         {
-            //var rating_mark = mark.Replace('.', ',');
-            //var d = Convert.ToDouble(rating_mark);
-            RatingViewModel rat = new RatingViewModel()
+            return PartialView("_Rating", new RatingResourceViewModel() { id_resource = id_resource, mark = mark });
+        }
+
+
+        [HttpPost]
+        public ActionResult Rating(RatingResourceViewModel model)
+        {
+            ResourceViewModel resource = null;
+            if (ModelState.IsValid)
             {
-                Date = DateTime.Now,
-                id_Resource = id_resource,
-                id_Users = (int)Session["userId"],
-                Mark = mark
-            };
-            _ratingService.Create(rat.ToBllRating());
-            var resource = _resourceService.GetEntitieById(id_resource).ToMvcResource();
-            return Json(resource.Rating);
+                RatingViewModel rat = new RatingViewModel()
+                {
+                    Date = DateTime.Now,
+                    id_Resource = model.id_resource,
+                    id_Users = (int)Session["userId"],
+                    Mark = (double)model.mark
+                };
+                _ratingService.Create(rat.ToBllRating());
+                resource = _resourceService.GetEntitieById(model.id_resource).ToMvcResource();
+            }
+            if (Request.IsAjaxRequest())
+                return Json(resource.Rating);
+            else
+                return RedirectToAction("ResourceView", "Home", new { id_resource = model.id_resource });
+        }
+
+        public ActionResult RemoveView(int id_resource)
+        {
+            return View(_resourceService.GetEntitieById(id_resource).ToMvcResource());
         }
 
         public ActionResult Remove(int id_resource)
@@ -223,8 +286,10 @@ namespace Lume.Controllers
                 _ratingService.Delete(rat);
             }
             _resourceService.Delete(_resourceService.GetEntitieById(id_resource));
-
-            return null;
+            if (Request.IsAjaxRequest())
+                return null;
+            else
+                return RedirectToAction("Index", "Home");
         }
 
         private ActionResult UploadHelper(ResourceViewModel resource)
@@ -284,6 +349,12 @@ namespace Lume.Controllers
             resource.id_User = (int)Session["userId"];
             _resourceService.Create(resource.ToBllResource());
             return null;
+        }
+        private double GetPopularity(double mark, double view, double max_views, double global_rating)
+        {
+
+            var w = max_views > 0 ? view / max_views : 1;
+            return w * mark + (1 - w) * global_rating;
         }
     }
 

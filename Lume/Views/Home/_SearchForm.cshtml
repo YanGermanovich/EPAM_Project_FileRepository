@@ -1,0 +1,55 @@
+﻿@using Lume.Models
+@using Lume.Infrastructure.Helpers
+@model SearchViewModel
+
+@using (Html.BeginForm("SearchForm", "Home", FormMethod.Post, new { @class = "search_form", id = "search_form" }))
+{
+    <div>
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name)
+    </div>
+    
+    <div>
+    @Html.LabelFor(m => m.Description)
+    @Html.TextBoxFor(m => m.Description)
+    </div>
+    
+    <div>
+        @Html.LabelFor(m=>m.Type)
+        @Html.EnumDropDownListFor(m => m.Type)
+    </div>
+    
+    <div>
+    @Html.LabelFor(m => m.Rating_Less)
+    @Html.TextBoxFor(m => m.Rating_Less, new { type = "number", max = "5.0", min = "0.0", step="0.1"})
+    </div>
+    
+    <div>
+    @Html.LabelFor(m => m.Rating_More)
+    @Html.TextBoxFor(m => m.Rating_More, new { type = "number", max = "5.0", min = "0.0", step = "0.1" })
+    </div>
+    
+    <div>
+    @Html.LabelFor(m => m.View_Less)
+    @Html.TextBoxFor(m => m.View_Less, new { type = "number",min ="0" })
+    </div>
+    
+    <div>
+    @Html.LabelFor(m => m.View_More)
+    @Html.TextBoxFor(m => m.View_More, new { type = "number", min = "0" })
+    </div>
+    
+    <div>
+    @Html.LabelFor(m => m.Size_Less)
+    @Html.TextBoxFor(m => m.Size_Less, new { type = "number", min = "0" })
+    </div>
+    
+    <div>
+    @Html.LabelFor(m => m.Size_More)
+    @Html.TextBoxFor(m => m.Size_More, new { type = "number", min = "0" })
+    </div>
+    
+    <noscript>
+        <input type="submit" value="Search" class="btn btn-primary" />
+    </noscript>
+}

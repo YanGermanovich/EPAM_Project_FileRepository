@@ -151,14 +151,17 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\CaptchaImage.cs" />
+    <Compile Include="Infrastructure\Helpers\SelectExtensions.cs" />
     <Compile Include="Infrastructure\Mappers\RatingModelMapper.cs" />
     <Compile Include="Infrastructure\Mappers\RecourseModelMapper.cs" />
     <Compile Include="Infrastructure\Mappers\UserModelMapper.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Models\LogInViewModel.cs" />
     <Compile Include="Models\PaginationViewModel.cs" />
+    <Compile Include="Models\RatingResourceViewModel.cs" />
     <Compile Include="Models\RatingViewModel.cs" />
     <Compile Include="Models\RecourseViewModel.cs" />
+    <Compile Include="Models\SearchViewModel.cs" />
     <Compile Include="Models\SignUpViewModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -181,6 +184,7 @@
     <Content Include="Content\myThemes\index.css" />
     <Content Include="Content\myThemes\login.css" />
     <Content Include="Content\myThemes\modal_slide.css" />
+    <Content Include="Content\myThemes\resourceView.css" />
     <Content Include="Content\myThemes\search.css" />
     <Content Include="Content\myThemes\search.dataTables-min.css" />
     <Content Include="Content\myThemes\SignIn.css" />
@@ -308,6 +312,11 @@
     <Content Include="Views\Account\SignIn.cshtml" />
     <Content Include="Views\Shared\_DataTable.cshtml" />
     <Content Include="Views\Home\Upload.cshtml" />
+    <Content Include="Views\Home\ResourceView.cshtml" />
+    <Content Include="Views\Home\_Rating.cshtml" />
+    <Content Include="Views\Home\RemoveView.cshtml" />
+    <Content Include="Views\Home\Edit.cshtml" />
+    <Content Include="Views\Home\_SearchForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\fonts\" />

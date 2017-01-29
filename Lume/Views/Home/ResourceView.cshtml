@@ -1,0 +1,42 @@
+﻿@using Lume.Models
+@model IEnumerable<object>
+
+@{
+    ViewBag.Title = "ResourceView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    var resource = (ResourceViewModel)Model.ElementAt(0);
+    var is_rated = (bool)Model.ElementAt(1);
+}
+
+
+<h4 class="resourceViewName">
+    <span id="resourceViewName">@resource.Name</span>
+</h4>
+
+
+<div class="resourceViewBody">
+    <div>
+        @resource.Description
+    </div>
+    <div> @Html.ActionLink("Download", "Download", "Home", new { id_resource = @resource.Id }, new { @class = " btn btn-primary", id = "downloadLink" })</div>
+
+
+    <div>
+        Views: @resource.Views
+    </div>
+    <div>
+        Rating: @resource.Rating
+    </div>
+    @if (!is_rated)
+    {
+        <div>
+            @Html.Action("Rating", new { id_resource = resource.Id, mark = resource.Rating })
+        </div>
+    }
+
+</div>
+@section styles{
+    <link href="~/Content/myThemes/resourceView.css" rel="stylesheet" />
+}

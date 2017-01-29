@@ -1,0 +1,15 @@
+﻿@using Lume.Models
+@model ResourceViewModel
+
+@{
+    ViewBag.Title = "RemoveView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>
+    Are you sure you want delete this resource: "@Model.Name"?
+</h4>
+<div>
+    @Html.ActionLink("Yes", "Remove", "Home", new { id_resource = Model.Id }, new { @class = "btn btn-success" })
+    @Html.ActionLink("No", "Index", "Home",new { @class = "btn btn-danger" })
+</div>

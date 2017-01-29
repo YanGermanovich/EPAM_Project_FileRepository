@@ -104,3 +104,7 @@
 .rating {
     display: none;
 }
+
+.search_form div{
+    padding-bottom :10px;
+}

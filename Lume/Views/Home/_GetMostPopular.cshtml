@@ -18,8 +18,9 @@
                 }
             </div>
         </div>
-        <button value="@resource.Id" type="button" class="col-xs-2 col-lg-2 view_button" data-toggle="modal" data-target="#myModalView">
+        @Html.ActionLink(" ", "ResourceView", "Home", new { id_resource = resource.Id }, new { value = @resource.Id, @class = @myClass + " col-xs-2 col-lg-2 view_button_js" })
+        @*<button value="@resource.Id" type="button" class="col-xs-2 col-lg-2 view_button" data-toggle="modal" data-target="#myModalView">
             <div class="@myClass"> </div>
-        </button>
+        </button>*@
     </div>
 }

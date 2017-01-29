@@ -1,0 +1,16 @@
+﻿@model Lume.Models.RatingResourceViewModel
+
+@using (Html.BeginForm("Rating", "Home", FormMethod.Post))
+{
+    <div>
+        @Html.LabelFor(m => m.mark, "Enter you rating (0 - 5)")
+    </div>
+    <div>
+        @Html.TextBoxFor(m => m.mark, new { type = "number", max = "5.0", min = "0.0", step="0.1"})
+    </div>
+    @Html.ValidationMessageFor(m => m.mark , null, new { @class = "text-danger"})
+    <div>
+        <input type="submit" value="Rate" class="btn btn-primary" />
+    </div>
+    @Html.TextBoxFor(m => m.id_resource, new { type = "hidden", value = Model.id_resource })
+}

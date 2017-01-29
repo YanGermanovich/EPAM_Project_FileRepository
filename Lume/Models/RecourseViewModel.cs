@@ -19,7 +19,6 @@ namespace Lume.Models
         public TypeResource TypeResource { get; set; }
         public int id_User { get; set; }
 
-        [Required(ErrorMessage = "Please enter resource name")]
         [Display(Name = "File")]
         public HttpPostedFileBase UploadFile { get; set; }
         public byte[] DownloadFile{ get; set; }

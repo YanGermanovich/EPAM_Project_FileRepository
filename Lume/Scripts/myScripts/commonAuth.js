@@ -44,8 +44,8 @@ function RefreshForm(page) {
     })
 }
 function InitializeForm() {
-    $(".view_button").on("click", function () {
-        $.post("//" + document.location.host + "/Home/ResourceView", "id_resource=" + $(this).val(), function (data) {
+    $(".view_button_js").on("click", function () {
+        $.post("//" + document.location.host + "/Home/ResourceView", "id_resource=" + $(this).attr("value"), function (data) {
             $("#resourceViewName").html(data[0]["Name"]);
             $("#resourceViewDescription").html(data[0]["Description"]);
             $("#resourceViewRating").val();
@@ -54,24 +54,45 @@ function InitializeForm() {
             $("#currentResourceID").val(data[0]["Id"]);
             $("#downloadLink").attr("href", "//" + document.location.host + "/Home/Download?id_resource=" + data[0]["Id"]);
             $("#resourceViewRating").attr("data-readonly", data[1]);
-            $('#resourceViewRating').rating();
+            $('#resourceViewRating').rating
             SetHandlerRating()
         });
     });
-    $('#closeResourceView').on("click", function () {
-        RefreshForm();
-    })
-    $(".delResource").on("click", function () {
+
+    $(".delResource").on("click", function (e) {
+        e.preventDefault();
         if (confirm("Are you sure you want delete this resource?")) {
             $.get("//" + document.location.host + "/Home/Remove", "id_resource=" + $(this).attr("value"), function () {
                 RefreshForm();
             });
         }
     });
+
+    $(".edit_button").on("click", function () {
+        $.get("//" + document.location.host + "/Home/Edit", "id_resource=" + $(this).attr("value"), function (data) {
+            $("#editForm").html(data);
+        })
+    })
+
     $(".changePage").on("click", function (e) {
         e.preventDefault();
         RefreshForm($(this).attr("href"))
     })
     $(".rating_number_noJS").addClass("rating_number");
+
+    $(".view_button_js").attr("href", "");
+    $(".view_button_js").attr("data-toggle", "modal")
+    $(".view_button_js").attr("data-target", "#myModalView")
+
+    $(".edit_button").attr("href", "");
+    $(".edit_button").attr("data-toggle", "modal")
+    $(".edit_button").attr("data-target", "#myModalEdit")
+
+
+    $("#myModalView").on("hidden.bs.modal", function () {
+        RefreshForm();
+    })
+
     InitializeCurrentForm();
+
 }

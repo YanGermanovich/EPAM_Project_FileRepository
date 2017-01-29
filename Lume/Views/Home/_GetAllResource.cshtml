@@ -6,14 +6,11 @@
 {
     <tr>
         <td>
-            <button value="@resource.Id" type="button" class="view_button" data-toggle="modal" data-target="#myModalView"><span class="glyphicon glyphicon-eye-open"></span></button>
-
+            @Html.ActionLink(" ", "ResourceView", "Home", new { id_resource = resource.Id }, new { value = @resource.Id, @class = "view_button view_button_js glyphicon glyphicon-eye-open" })
             @if (resource.id_User == (int)Session["userId"])
             {
-                <button id="editResource" class="edit_resource_btn" data-toggle="modal" data-target="#myModalEdit">
-                    @Ajax.ActionLink("Edit", "Edit", "Home", new { id_resource = @resource.Id }, new AjaxOptions() { UpdateTargetId = "editForm", InsertionMode = InsertionMode.Replace }, new { @class = "glyphicon glyphicon-edit" })
-                </button>
-                <span value="@resource.Id" class=" delResource del_resource_btn glyphicon glyphicon-remove"></span>
+                @Html.ActionLink("Edit", "Edit", "Home", new { id_resource = @resource.Id }, new { value = @resource.Id, @class = "edit_button glyphicon glyphicon-edit" })
+                @Html.ActionLink(" ", "RemoveView", "Home", new { id_resource = resource.Id }, new { value = @resource.Id, @class = "delResource del_resource_btn glyphicon glyphicon-remove" })
             }
         </td>
         <td>@resource.Name</td>
