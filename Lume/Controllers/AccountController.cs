@@ -2,6 +2,7 @@
 using Lume.Infrastructure;
 using Lume.Models;
 using Lume.Providers;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.Drawing.Imaging;
@@ -19,10 +20,12 @@ namespace Lume.Controllers
 
         private readonly IUserService _userService;
 
+        private readonly ILogger _logger;
 
-        public AccountController(IUserService service)
+        public AccountController(IUserService service, ILogger logger)
         {
             _userService = service;
+            _logger = logger;
         }
 
         [AllowAnonymous]
@@ -44,6 +47,7 @@ namespace Lume.Controllers
                 if (Membership.ValidateUser(viewModel.Email, viewModel.Password))
                 {
                     FormsAuthentication.SetAuthCookie(viewModel.Email, viewModel.RememberMe);
+                    _logger.Info(String.Format("User {0}, signed in",viewModel.Email));
                     if (Url.IsLocalUrl(returnUrl))
                     {
                         if (Request.IsAjaxRequest())
@@ -112,6 +116,7 @@ namespace Lume.Controllers
 
                 if (membershipUser != null)
                 {
+                    _logger.Info(String.Format("User {0}, signed up", viewModel.Email));
                     FormsAuthentication.SetAuthCookie(viewModel.Email, false);
                     return RedirectToAction("Index", "Home");
                 }
@@ -125,8 +130,9 @@ namespace Lume.Controllers
 
         public ActionResult LogOut()
         {
+            _logger.Info(String.Format("User {0}, signed out", User.Identity.Name));
             FormsAuthentication.SignOut();
-
+            
             return RedirectToAction("Login", "Account");
         }
 

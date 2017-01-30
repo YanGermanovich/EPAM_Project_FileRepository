@@ -11,6 +11,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq.Expressions;
 using BLL.Entities;
 using System.Web.Routing;
+using NLog;
 
 namespace Lume.Controllers
 {
@@ -21,19 +22,16 @@ namespace Lume.Controllers
         private readonly IUserService _userService;
         private readonly IRatingService _ratingService;
         private readonly IResourceService _resourceService;
+        private readonly ILogger _logger;
 
-        public HomeController(IUserService userService, IRatingService ratingService, IResourceService resourceService)
+        public HomeController(IUserService userService, IRatingService ratingService, IResourceService resourceService, ILogger logger)
         {
             _userService = userService;
             _ratingService = ratingService;
             _resourceService = resourceService;
+            _logger = logger;
         }
 
-
-        public ActionResult Foo()
-        {
-            return View();
-        }
 
         public ActionResult Index()
         {
@@ -173,6 +171,7 @@ namespace Lume.Controllers
             else
                 return View(current_resource);
         }
+
         [HttpPost]
         public ActionResult Edit(ResourceViewModel model)
         {
@@ -182,13 +181,16 @@ namespace Lume.Controllers
                 current_resource.Name = model.Name;
                 current_resource.Description = model.Description;
                 _resourceService.Update(current_resource);
+                _logger.Info(String.Format("User {0}, edited file: '{1}'", User.Identity.Name, model.Name));
                 return RedirectToAction("Index", "Home");
             }
+
             if (Request.IsAjaxRequest())
                 return RedirectToAction("Index", "Home");
             else
                 return View(model);
         }
+
         public ActionResult Search()
         {
             var resources = _resourceService.GetAllEntities().Select(res => res.ToMvcResource()).ToList();
@@ -247,6 +249,7 @@ namespace Lume.Controllers
         public FileResult Download(int id_resource)
         {
             var resource = _resourceService.GetEntitieById(id_resource);
+            _logger.Info(String.Format("User {0}, downloaded file: '{1}'", User.Identity.Name, _resourceService.GetEntitieById(id_resource).Name));
             return File(resource.File, System.Net.Mime.MediaTypeNames.Application.Octet, resource.Name);
         }
 
@@ -255,8 +258,6 @@ namespace Lume.Controllers
         {
             return PartialView("_Rating", new RatingResourceViewModel() { id_resource = id_resource, mark = mark });
         }
-
-
         [HttpPost]
         public ActionResult Rating(RatingResourceViewModel model)
         {
@@ -292,6 +293,7 @@ namespace Lume.Controllers
                 _ratingService.Delete(rat);
             }
             _resourceService.Delete(_resourceService.GetEntitieById(id_resource));
+            _logger.Info(String.Format("User {0}, remove file: '{1}'", User.Identity.Name, _resourceService.GetEntitieById(id_resource).Name));
             if (Request.IsAjaxRequest())
                 return null;
             else
@@ -354,6 +356,7 @@ namespace Lume.Controllers
             }
             resource.id_User = (int)Session["userId"];
             _resourceService.Create(resource.ToBllResource());
+            _logger.Info(String.Format("User {0}, uploaded file: '{1}'", User.Identity.Name,resource.Name));
             return null;
         }
         private double GetPopularity(double mark, double view, double max_views, double global_rating)

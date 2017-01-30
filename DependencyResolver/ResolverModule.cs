@@ -6,6 +6,7 @@ using DAL.Interface;
 using Ninject;
 using Ninject.Web.Common;
 using ORM;
+using NLog;
 
 namespace CustomDependencyResolver
 {
@@ -32,7 +33,7 @@ namespace CustomDependencyResolver
                 kernel.Bind<DbContext>().To<LumeDBEntities>().InSingletonScope();
             }
 
-            kernel.Bind
+            kernel.Bind<ILogger>().ToMethod(f => LogManager.GetCurrentClassLogger()).InSingletonScope();
 
             kernel.Bind<IUserService>().To<UserService>();
             kernel.Bind<IUserRepository>().To<UserRepository>();

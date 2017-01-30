@@ -187,3 +187,6 @@ D:\Documents\GitHub\EPAM_Project_FileRepository\Lume\bin\ru\System.Web.WebPages.
 D:\Documents\GitHub\EPAM_Project_FileRepository\Lume\obj\Debug\Lume.csprojResolveAssemblyReference.cache
 D:\Documents\GitHub\EPAM_Project_FileRepository\Lume\obj\Debug\Lume.dll
 D:\Documents\GitHub\EPAM_Project_FileRepository\Lume\obj\Debug\Lume.pdb
+D:\Documents\GitHub\EPAM_Project_FileRepository\Lume\bin\NLog.config
+D:\Documents\GitHub\EPAM_Project_FileRepository\Lume\bin\NLog.dll
+D:\Documents\GitHub\EPAM_Project_FileRepository\Lume\bin\NLog.xml

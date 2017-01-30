@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -12,8 +13,8 @@ namespace Lume.Infrastructure.Filters
     {
         public override void OnException(ExceptionContext filterContext)
         {
-
-            Debug.WriteLine(filterContext.Exception.ToString());
+            var logger = (ILogger)DependencyResolver.Current.GetService(typeof(ILogger));
+            logger.Error(filterContext.Exception);
             base.OnException(filterContext);
         }
     }

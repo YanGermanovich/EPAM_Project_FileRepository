@@ -82,3 +82,5 @@ D:\Documents\GitHub\EPAM_Project_FileRepository\DependencyResolver\bin\Debug\ru\
 D:\Documents\GitHub\EPAM_Project_FileRepository\DependencyResolver\obj\Debug\CustomDependencyResolver.csprojResolveAssemblyReference.cache
 D:\Documents\GitHub\EPAM_Project_FileRepository\DependencyResolver\obj\Debug\DependencyResolver.dll
 D:\Documents\GitHub\EPAM_Project_FileRepository\DependencyResolver\obj\Debug\DependencyResolver.pdb
+D:\Documents\GitHub\EPAM_Project_FileRepository\DependencyResolver\bin\Debug\NLog.dll
+D:\Documents\GitHub\EPAM_Project_FileRepository\DependencyResolver\bin\Debug\NLog.xml
