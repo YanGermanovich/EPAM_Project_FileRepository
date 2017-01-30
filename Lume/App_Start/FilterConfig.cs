@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using Lume.Infrastructure.Filters;
+using System.Web;
 using System.Web.Mvc;
 
 namespace Lume
@@ -7,7 +8,9 @@ namespace Lume
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
-            filters.Add(new HandleErrorAttribute());
+            filters.Add(new NLogExceptionHandlerAttribute());
         }
     }
+
+    
 }

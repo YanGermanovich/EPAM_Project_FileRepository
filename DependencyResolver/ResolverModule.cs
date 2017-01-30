@@ -32,6 +32,8 @@ namespace CustomDependencyResolver
                 kernel.Bind<DbContext>().To<LumeDBEntities>().InSingletonScope();
             }
 
+            kernel.Bind
+
             kernel.Bind<IUserService>().To<UserService>();
             kernel.Bind<IUserRepository>().To<UserRepository>();
 

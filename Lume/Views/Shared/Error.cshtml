@@ -1,18 +1,19 @@
-﻿@{
-    Layout = null;
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Error";
 }
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="viewport" content="width=device-width" />
-    <title>Ошибка</title>
-</head>
-<body>
-    <hgroup>
-        <h1>Ошибка.</h1>
-        <h2>При обработке запроса произошла ошибка.</h2>
-    </hgroup>
-</body>
-</html>
+<div>
+    <div class="errorContainer">
+        <h3>
+            Application Error:
+        </h3>
+        <h4>
+            Sorry, an error occurred while processing your request.
+        </h4>
+        <h6>@Html.ActionLink("Go Back To Home Page", "Index", "Home")</h6>
+        <br />
+        <br />
+    </div>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lume.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,10 +19,53 @@ namespace Lume
         {
             AreaRegistration.RegisterAllAreas();
 
-           // WebApiConfig.Register(GlobalConfiguration.Configuration);
+            WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+        //protected void Application_Error()
+        //{
+
+        //    if (Context.IsCustomErrorEnabled)
+        //        ShowCustomErrorPage(Server.GetLastError());
+
+        //}
+        //private void ShowCustomErrorPage(Exception exception)
+        //{
+        //    var httpException = exception as HttpException ?? new HttpException(500, "Internal Server Error", exception);
+
+        //    Response.Clear();
+        //    var routeData = new RouteData();
+        //    routeData.Values.Add("controller", "Errors");
+        //    routeData.Values.Add("fromAppErrorEvent", true);
+
+        //    routeData.Values.Add("action", "General");
+        //    routeData.Values.Add("httpStatusCode", httpException.GetHttpCode());
+        //    //switch (httpException.GetHttpCode())
+        //    //{
+        //    //    case 403:
+        //    //        routeData.Values.Add("action", "HttpError403");
+        //    //        break;
+
+        //    //    case 404:
+        //    //        routeData.Values.Add("action", "HttpError404");
+        //    //        break;
+
+        //    //    case 500:
+        //    //        routeData.Values.Add("action", "HttpError500");
+        //    //        break;
+
+        //    //    default:
+        //    //        routeData.Values.Add("action", "General");
+        //    //        routeData.Values.Add("httpStatusCode", httpException.GetHttpCode());
+        //    //        break;
+        //    //}
+
+        //    Server.ClearError();
+
+        //    IController controller = new ErrorsController();
+        //    controller.Execute(new RequestContext(new HttpContextWrapper(Context), routeData));
+        //}
     }
 }

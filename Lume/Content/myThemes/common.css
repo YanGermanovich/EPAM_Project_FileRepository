@@ -99,3 +99,7 @@
 .delResource {
     text-decoration: none !important;
 }
+
+.errorContainer{
+    padding:20px;
+}

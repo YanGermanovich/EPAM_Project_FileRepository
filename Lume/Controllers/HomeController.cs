@@ -14,6 +14,7 @@ using System.Web.Routing;
 
 namespace Lume.Controllers
 {
+    [HandleError] 
     [Authorize]
     public class HomeController : Controller
     {
@@ -28,6 +29,11 @@ namespace Lume.Controllers
             _resourceService = resourceService;
         }
 
+
+        public ActionResult Foo()
+        {
+            return View();
+        }
 
         public ActionResult Index()
         {
